@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ideal Cinema-Homepage</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="homepage">
+        <link rel="icon" type="image/png" href="images/slide/movies/index.png">
+        <link rel="stylesheet" href="css/style.css">
+
+
+    </head>
+    <body>
+        <div id="divmaincontainer" class="master">
+            <div id="divmenu" class="master">
+                <div id="divlogo" class="menu">
+                    <li><a href="index.html"><img src="images/slide/movies/index.png" width="10%" height="10%"></a></li>
+                        
+                </div>
+                <div id="divnavigation" class="master">
+                    <nav id="navmenu">
+                        <ul id="ulmenu">
+                            <li><a href="index.html">HOME</a></li>
+                            <li>
+                                <a href="#">MOVIES</a>
+                                <ul class="submenu">
+                                    <li><a href="nowshowing.html">Now Showing</a></li>
+                                    <li><a href="upcoming.html">Upcoming</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">CATEGORY</a>
+                                <ul class="submenu">
+                                    <li><a href="action.html">ACTION/HORROR</a></li>
+                                    <li><a href="children.html">ANIMATION</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="schedule.html">SCHEDULE</a></li>
+                            <li>
+                                <a href="#">ABOUT US</a>
+                                <ul class="submenu">
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="feedback.html">FEEDBACK</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div id="divsearch" class="search">
+                        <form>
+                            <input type="search" value="" id="search" placeholder="Type to search">
+                            <input type="submit" value="search">
+                        </form>
+                    </div>
+                </div>    
+            </div>        
+            <div id="divmaincontent" class="master">
+                <div id="divslideContainer" class="divmaincontent">
+                    <img id="slide" src="slideshow()" alt="SlideShow" this.src="images/slide/image_0.jpg">
+                </div>
+                <div class="quicklinks">
+                    <div id="divname">SHOW TIMES</div>
+                    <div id="divImage" class="images">
+                        <img src="images/slide/movies/calendar.jpg" alt="VenomLogo">
+                    </div>
+                    <div id="divInfo">
+                        <li><a href="schedule.html">VIEW SCHEDULE</a></li>
+                    </div>
+                </div>
+                <div class="quicklinks" >
+                    <div id="divname">OPEN TIMES</div>
+                    <div id="divImage" class="images">
+                        <img src="images/slide/movies/opentimes.png" alt="CONTACTUS">
+                    </div>
+                    <div id="divInfo">
+                        <li><a href="openTimes.html">VIEW OUR TRADING HOURS</a></li>
+                    </div>
+                </div>
+                <div class="quicklinks" >
+                    <div id="divname">GALLERY</div>
+                    <div id="divImage" class="images">
+                        <img src="images/slide/movies/iinside4.jpg" alt="VenomLogo">
+                    </div>
+                    <div id="divInfo">
+                        <li><a href="gallery.html">VISIT GALLERY</a></li>
+                    </div>
+                </div>
+                <div class="quicklinks" >
+                    <div id="divname">CONTACT US</div>
+                    <div id="divImage" class="images">
+                        <img src="images/slide/movies/contact.png" alt="CONTACTUS">
+                    </div>
+                    <div id="divInfo">
+                        <li><a href="contact.html">Contact us</a></li>
+                    </div>
+                </div>
+            </div>
+            <div id="divfooter" class="master">
+                <p id="pfooter">Copyright@KaboMovieTheatre2022</p>
+            </div>
+        </div>         
+    </body>
+    <script>
+
+        //STEP 1: - create array to hold slideshow images
+        var arrgallery = new Array();
+
+        //STEP 2: - load images into array
+        var k; //variable controlling the loop
+        for(k=0; k<10; k++){
+            arrgallery[k] = "images/slide/image_"+ (k+1) +".jpg"
+        }
+
+        //STEP 3: - declare variable to control looping of images / slideshow
+        var imgIndex = 0;
+
+        //STEP 4: - load the image for the slideshow and increment imgIndex
+        function slideshow(){
+            document.getElementById("slide").setAttribute("src", arrgallery[imgIndex]);
+            imgIndex = (imgIndex < arrgallery.length)? imgIndex + 1 : 0;
+            //alert(`NOW AT POSITION : ${imgIndex}`);
+        }
+
+        //STEP 5: - set timer interval, number of seconds for an image to display
+        window.onload = function(){
+            setInterval("slideshow()", 3500); //setTimeout("slideshow()", 5000); //1second = 1000ms
+        }
+
+    </script>
+</html>
